@@ -1,1 +1,6 @@
-# lazy_evaluation_interpreter
+Variation on The Little Schemer Interpreter - Lazy Evaluation
+Students: Aashna Shah, Gurpreet Singh, James Chou
+
+1. Introduction
+
+The Little Schemer (TLS) is an applicative-order language. It evaluates all procedure arguments whether or not their values are needed before entering the body of the procedure. If the argument is evaluated before the body of the procedure is entered we say that the procedure is strict in that argument. In this paper, we explore a variation of TLS interpreter in which the evaluations of procedure arguments are delayed until the values are needed in the procedure. If the body of the procedure is entered before an argument has been evaluated we say that the procedure is non-strict in that argument. This is known as lazy or Normal order evaluation and it allows procedures to be defined that could not be defined using the normal order evaluation. This strategy has two crucial properties. First, the evaluation of argument is delayed and stored as thunks, until its result is needed. Second, the first time a delayed computation is executed, it is changed to an evaluated thunk and its resulting value is cached so that the next time it is needed, it can be looked up rather than recomputed. This caching is known as memoization.
